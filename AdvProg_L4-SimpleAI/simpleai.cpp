@@ -90,9 +90,11 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
     for (map<char, int>::const_iterator it = occurrences.begin(); it != occurrences.end(); ++it){
         char c = (*it).first;
         int occurrs = (*it).second;
-        if (occurrs > best){
-            best = occurrs;
-            answer = c;
+        if (selectedChars.find(c) == selectedChars.end()){
+            if (occurrs > best){
+                best = occurrs;
+                answer = c;
+            }
         }
     }
     return answer;
